@@ -1,8 +1,11 @@
+$movieMargin: 16px;
+$posterWidth: 300px;
+
 .App {
     text-align: center;
     .Title {
         font-size: 3rem;
-        padding: 48px;
+        padding: 48px 0 40px 0;
     }
     .Search {
         display: flex;
@@ -11,6 +14,64 @@
         flex-direction: column;
         &>* {
             margin: 8px;
+        }
+    }
+    .MovieList {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        /* width fits three movie posters centered including margins */
+        width: $posterWidth * 3 + $movieMargin * 6;
+        margin: 0 auto;
+        box-sizing: border-box;
+        .Movie {
+            margin: $movieMargin;
+            flex: 0;
+            padding-bottom: 10px;
+            h5 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            &>* {
+                margin: 10px 0;
+            }
+        }
+    }
+    button {
+        background-image: linear-gradient(.5turn, #0080f8, #001aff);
+        outline: none;
+        border: none;
+        color: #EEE;
+        font-size: 1.5rem;
+        padding: 8px 10px;
+        box-shadow: 0 0 10px 1px rgba(0,0,0,.25);
+        border: 1px solid black;
+        border-radius: 999px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 996px) {
+    .App {
+        .MovieList {
+            width: 90%;
+            justify-content: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 737px) {
+    .App {
+        .MovieList {
+            .Movie {
+                border-bottom: black 1px solid;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
         }
     }
 }

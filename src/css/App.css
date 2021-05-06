@@ -4,7 +4,7 @@
 
 .App .Title {
   font-size: 3rem;
-  padding: 48px;
+  padding: 48px 0 40px 0;
 }
 
 .App .Search {
@@ -25,5 +25,77 @@
 
 .App .Search > * {
   margin: 8px;
+}
+
+.App .MovieList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* width fits three movie posters centered including margins */
+  width: 996px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.App .MovieList .Movie {
+  margin: 16px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  padding-bottom: 10px;
+}
+
+.App .MovieList .Movie h5 {
+  font-size: 2rem;
+}
+
+.App .MovieList .Movie p {
+  font-size: 1.2rem;
+}
+
+.App .MovieList .Movie > * {
+  margin: 10px 0;
+}
+
+.App button {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0080f8), to(#001aff));
+  background-image: linear-gradient(0.5turn, #0080f8, #001aff);
+  outline: none;
+  border: none;
+  color: #EEE;
+  font-size: 1.5rem;
+  padding: 8px 10px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  border: 1px solid black;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 996px) {
+  .App .MovieList {
+    width: 90%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 737px) {
+  .App .MovieList .Movie {
+    border-bottom: black 1px solid;
+  }
+  .App .MovieList .Movie:last-child {
+    border-bottom: none;
+  }
 }
 /*# sourceMappingURL=App.css.map */
