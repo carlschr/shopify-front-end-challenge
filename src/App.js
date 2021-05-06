@@ -8,6 +8,7 @@ import {useState, useEffect} from 'react';
 function App() {
   const [input, setInput] = useState('');
   const [results, setResults] = useState([]);
+  const [nominations, setNominations] = useState([]);
 
   const handleChange = e => {
     const val = e.target.value;
@@ -15,6 +16,13 @@ function App() {
     if (!val) {
       setResults([]);
     }
+  }
+
+  const addNomination = e => {
+    e.preventDefault();
+    const id = e.target.dataset.id;
+    console.log(id);
+    setNominations([...(nominations || []), id]);
   }
 
   useEffect(() => {
@@ -33,11 +41,15 @@ function App() {
     fetchMovies();
   }, [input])
 
+  useEffect(() => {
+    console.log(nominations);
+  }, [nominations])
+
   return (
     <div className="App">
       <Title/>
       <Search handleChange={handleChange}/>
-      <MovieList results={results}/>
+      <MovieList results={results} addNomination={addNomination}/>
     </div>
   );
 }

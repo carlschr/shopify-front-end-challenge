@@ -1,8 +1,8 @@
 import Movie from './Movie';
 
-function MovieList({results}) {
+function MovieList({results, addNomination}) {
     const movies = (results) ? results.map((result, i) =>{
-        if (i < 5) return <Movie key={result.imdbID} movieData={result}/>
+        return (i < 6) ? <Movie key={result.imdbID} movieData={result} addNomination={addNomination}/> : '';
     }) : <p>No results found.</p>
     return (
         <div className='MovieList'>
